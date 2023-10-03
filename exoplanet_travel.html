@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Exoplanets</title>
+</head>
+
+<body>
+    <h1>List of Exoplanets</h1>
+    <div id="table-container">
+        <!-- The table will be inserted here -->
+    </div>
+
+    <script>
+        const apiUrl = "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+*+from+ps&format=csv";
+
+        fetch(apiUrl)
+            .then(response => response.text()) // Use response.text() to read the IPAC data as text
+            .then(ipacData => {
+                // Process and work with the IPAC-formatted data here
+
+                // Function to parse IPAC data and create an HTML table
+                function createTableFromIPAC(ipacText) {
+                    const lines = ipacText.trim().split('\n');
+                    const header = lines[0].split('|').map(column => column.trim());
+                    const data = lines.slice(1).map(line => line.split('|').map(cell => cell.trim()));
+
+                    const table = document.createElement('table');
+                    const thead = document.createElement('thead');
+                    const tbody = document.createElement('tbody');
+
+                    // Create table header (thead)
+                    const headerRow = document.createElement('tr');
+                    header.forEach(column => {
+                        const th = document.createElement('th');
+                        th.textContent = column;
+                        headerRow.appendChild(th);
+                    });
+                    thead.appendChild(headerRow);
+                    table.appendChild(thead);
+
+                    // Create table rows (tbody)
+                    data.forEach(rowData => {
+                        const row = document.createElement('tr');
+                        rowData.forEach(cellData => {
+                            const cell = document.createElement('td');
+                            cell.textContent = cellData;
+                            row.appendChild(cell);
+                        });
+                        tbody.appendChild(row);
+                    });
+                    table.appendChild(tbody);
+
+                    return table;
+                }
+
+                // Get the container element and insert the table
+                const tableContainer = document.getElementById('table-container');
+                const table = createTableFromIPAC(ipacData);
+                tableContainer.appendChild(table);
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+
+    </script>
+</body>
+
+</html>

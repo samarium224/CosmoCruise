@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmo Cruise | Space Wiki</title>
+
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/index.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lekton&family=MedievalSharp&family=Poppins&display=swap"
+        rel="stylesheet">
+</head>
+<body>
+    <div class="header">
+        <h1 class="text-center text-white my-5">NASA APOD API Call</h1>
+    </div>
+    <div class="container d-flex justify-content-evenly my-5">
+        <div id="img_container">
+            <img class="img-fluid" id="nasa_image" alt="NASA Image">
+        </div>
+        <div class="content text-white px-5 w-100">
+            <h1 id="title"></h1>
+            <p id="description"></p>
+            <p><strong>Date:</strong> <span id="date"></span></p>
+            <p><strong>Media Type:</strong> <span id="media_type"></span></p>
+            <p><strong>Service Version:</strong> <span id="service_version"></span></p>
+            <p><strong>Copyright:</strong> <span id="copyright"></span></p>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var exampleURL = 'https://api.nasa.gov/planetary/apod';
+            // var targetDate = '2023-09-27';
+            var apiKey = 'pbvowu4udDgeTShZHFU6zCTTd1QjChKL0tokS77x'; // Replace with your actual NASA API key
+
+            var fullURL = exampleURL + '?api_key=' + apiKey;
+            // var fullURL = exampleURL + '?api_key=' + apiKey + '&date=' + targetDate;
+
+            $.ajax({
+                url: fullURL,
+                success: function (response) {
+                    $('#nasa_image').attr('src', response.url);
+                    $('#title').text(response.title);
+                    $('#description').text(response.explanation);
+                    $('#date').text(response.date);
+                    $('#media_type').text(response.media_type);
+                    $('#service_version').text(response.service_version);
+                    $('#copyright').text(response.copyright);
+                },
+                error: function (xhr, status, error) {
+                    console.log('Error in network request:', error);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
