@@ -45,7 +45,7 @@
                             <p class="card-text">Flying to any part of the world within an hour. Making the whole world
                                 more closer . With the help of Orbital rockets you can now move to any part of the world
                                 in minutes</p>
-                            <button class="btn btn-primary">BOOK TICKETS</button>
+                            <button class="btn btn-primary" onclick="goto_spacejump(1)">BOOK TICKETS</button>
                         </div>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                                 private individuals to experience space travel by boarding spacecraft designed for
                                 brief
                                 journeys into Earth's orbit.</p>
-                            <button class="btn btn-pur-primary">BOOK TICKETS</button>
+                            <button class="btn btn-pur-primary" onclick="goto_spacejump(2)">BOOK TICKETS</button>
                         </div>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
                             <p class="card-text">Visiting other planets or celestial bodies in our solar system. From
                                 Mars to Uranus , To different asteroids. The thrilling planetary adventure is waiting
                                 for you.</p>
-                            <button class="btn btn-org-primary">BOOK TICKETS</button>
+                            <button class="btn btn-org-primary" onclick="goto_spacejump(3)">BOOK TICKETS</button>
                         </div>
                     </div>
                 </div>
@@ -86,5 +86,17 @@
         </div>
     </div>
 </body>
-
+<script>
+    function goto_spacejump(id){
+        if (id == 1){
+            window.location.href = "spacejump.html";
+        }
+        else if (id == 2){
+            window.location.href = "orbital_flight.html";
+        }
+        else if (id == 3){
+            window.location.href = "planetary_travel.html";
+        }
+    }
+</script>
 </html>
