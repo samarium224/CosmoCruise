@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cosmo Cruise | Planetary Travel</title>
+    <title>Cosmo Cruise | Choose Planet</title>
 
     <!-- bootstrap 5 cdn -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -32,10 +32,10 @@
             </ol>
         </nav>
         <div class="header">
-            <h1 class="text-center text-white my-5 popping_text">Planetary Travel</h1>
+            <h1 class="text-center text-white my-5 popping_text">Choose a Planet to Explore</h1>
         </div>
 
-        <div class="row py-4 mx-2 g-4">
+        <!-- <div class="row py-4 mx-2 g-4">
             <div class="col-md-12">
                 <h3 class="text-warning">Description</h3>
                 <p class="text-white">Embark on a journey through the giant solar system of ours roaming around Mars,
@@ -57,14 +57,57 @@
                 <button class="btn btn-light" type="button" onclick="goto_booking()">Go To Choices</button>
             </div>
 
+        </div> -->
+
+        <div class="container">
+            <div class="row" id="planetRow" data-bs-theme="dark">
+                <!-- Planet cards will be inserted here -->
+            </div>
         </div>
+
 
     </div>
 </body>
 <script>
     function goto_booking() {
-        window.location.href = "choose_planet.html";
+        window.location.href = "iternary_generator.html";
     }
 </script>
+<!-- Include Bootstrap JS and Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="javascript/planetsdata.js"></script>
+<script>
+
+    // Function to create a Bootstrap card for a planet
+    function createPlanetCard(planet) {
+        return `
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">${planet.pl_name}</h5>
+                        <p class="card-text">
+                            <strong>Host Star:</strong> ${planet.hostname}<br>
+                            <strong>Discovery Method:</strong> ${planet.discoverymethod}<br>
+                            <strong>Discovery Year:</strong> ${planet.disc_year}<br>
+                            <strong>Discovery Facility:</strong> ${planet.disc_facility}<br>
+                            <strong>Orbital Period (days):</strong> ${planet.pl_orbper}<br>
+                            <strong>Distance (parsecs):</strong> ${planet.distance}
+                        </p>
+                        <button class="btn btn-dark border-success" type="button" onclick="goto_booking()">Select</button>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    // Loop through planetData and create cards
+    var planetRow = document.getElementById('planetRow');
+    planetData.forEach(function(planet) {
+        var cardHtml = createPlanetCard(planet);
+        planetRow.innerHTML += cardHtml;
+    });
+</script>
+</body>
+</html>
 
 </html>

@@ -79,6 +79,7 @@ p {
 	--bs-btn-disabled-color: #fff;
 	--bs-btn-disabled-bg: #542f15;
 	--bs-btn-disabled-border-color: #542f15;
+	border-radius: 50px;
 }
 
 .card_container {
