@@ -10,55 +10,18 @@ footer {
     position: relative;
     width: 100%;
     background: #000000;
-    min-height: 100px;
-    padding: 20px 0px 50px 0px;
+    min-height: 180px;
+    padding: 80px 0px 80px 0px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
 
-  footer .social_icon,
-  footer .menu {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px 0;
-    padding-inline-start: 0;
-  }
+.footerbody{
+    z-index: 5;
+    overflow-y: hidden;
+    margin: -80px;
+}
 
-  footer .social_icon li,
-  footer .menu li {
-    list-style: none;
-  }
-  footer .social_icon li a {
-    font-size: 2em;
-    color: #ccc;
-    margin: 0 10px;
-    display: inline-block;
-    transition: 0.5s;
-  }
-  footer .social_icon li a:hover {
-    transform: translateY(-15px);
-    color: blue;
-  }
 
-  footer .menu li a {
-    font-size: 1.2em;
-    color: #ccc;
-    margin: 0 10px;
-    display: inline-block;
-    transition: 0.5s;
-    text-decoration: none;
-    opacity: 0.75;
-  }
-  footer .menu li a:hover {
-    opacity: 1;
-    color: #fff;
-  }
-
-  .aboutdark p,
-  .footerbody p {
-    text-align: center;
-  }

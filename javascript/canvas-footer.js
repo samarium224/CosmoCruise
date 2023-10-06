@@ -1,5 +1,5 @@
-let footerCanvas = document.getElementById("footer-canvas");
-let footerParent = document.getElementById("footer");
+let footerCanvas = document.querySelector(".footer-canvas");
+let footerParent = document.querySelector("footer");
 
 footerCanvas.width = footerParent.clientWidth;
 footerCanvas.height = footerParent.clientHeight;

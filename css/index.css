@@ -79,6 +79,23 @@ p {
 	--bs-btn-disabled-color: #fff;
 	--bs-btn-disabled-bg: #542f15;
 	--bs-btn-disabled-border-color: #542f15;
+}
+
+.btn-pur-primary-round {
+	--bs-btn-color: #fff;
+	--bs-btn-bg: #464B9B;
+	--bs-btn-border-color: #464B9B;
+	--bs-btn-hover-color: #fff;
+	--bs-btn-hover-bg: #464B9B;
+	--bs-btn-hover-border-color: #464B9B;
+	--bs-btn-focus-shadow-rgb: 49, 132, 253;
+	--bs-btn-active-color: #fff;
+	--bs-btn-active-bg: #464B9B;
+	--bs-btn-active-border-color: #464B9B;
+	--bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+	--bs-btn-disabled-color: #fff;
+	--bs-btn-disabled-bg: #542f15;
+	--bs-btn-disabled-border-color: #542f15;
 	border-radius: 50px;
 }
 
@@ -90,6 +107,10 @@ p {
 	padding: 0px 60px 0px;
 }
 
+.feature_card{
+	height: 230px;
+}
+
 @media only screen and (max-width: 680px) {
 	.main_app_conver {
 		flex-direction: column;
@@ -97,6 +118,10 @@ p {
 
 	.main_app_logo {
 		margin: 40px 30px 0px;
+	}
+
+	.feature_card{
+		height: 320px;
 	}
 
 }
@@ -114,3 +139,4 @@ p {
 .form-select {
 	opacity: 70%;
 }
+
