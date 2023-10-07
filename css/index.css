@@ -12,14 +12,28 @@ body {
 	color: fff;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: Poppins;
+}
+
 p {
 	color: fff;
+	font-family: Inter;
 }
 
 .main_app_logo {
 	margin: 60px 0px;
 	padding: 60px auto;
 	width: 60%;
+}
+
+.mainlogotext {
+	font-size: 56px;
 }
 
 .img_container {
@@ -103,11 +117,11 @@ p {
 	height: 100%;
 }
 
-.whychooseus{
+.whychooseus {
 	padding: 0px 60px 0px;
 }
 
-.feature_card{
+.feature_card {
 	height: 230px;
 }
 
@@ -120,8 +134,17 @@ p {
 		margin: 40px 30px 0px;
 	}
 
-	.feature_card{
-		height: 380px;
+	.feature_card {
+		height: 360px;
+	}
+
+	.mainlogotext {
+		font-size: 36px;
+	}
+
+
+	.icon_mobile {
+		width: 80px;
 	}
 
 }
@@ -139,4 +162,3 @@ p {
 .form-select {
 	opacity: 70%;
 }
-
